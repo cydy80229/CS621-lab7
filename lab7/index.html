@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Password Checker</title>
+  </head>
+  <body>
+    <h1>Welcome to Password Checker</h1>
+    <hr>
+  <form class="" action="index.html" method="post">
+    <label for="username">Username</label><br>
+    <input type="text" name="name" placeholder="Username required" required><br>
+    <label for="">Password</label><br>
+    <input type="text" id="psw" name="psw" placeholder="password required" onclick="checkpassword()"><br>
+    <input type="submit" name="" value="submit">
+  </form>
+<br><br><br><br>
+<hr>
+<h3>Password must contain the following:</h3>
+<h1>One <b>lowercase</b> letter</h1>
+<h2>One <b>uppercase</b> letter</h2>
+<h3>End in a <b>number</b></h3>
+<h4>At least <b>8</b> characters</h4>
+<script type="text/javascript">
+  var psw = document.getElementById("psw");
+  var name = document.getElementById("name");
+
+
+
+function checkpassword(psw) {
+  var lowerCaseLetters = /[a-z]/g;
+  if(psw.value.match(lowerCaseLetters)) {
+console.log("passLowerCase");
+}
+else {
+document.querySelector("h3").innerHTML="No LowerCaseLetters";
+}
+
+var upperCaseLetters = /[A-Z]/g;
+if(psw.value.match(upperCaseLetters)) {
+document.querySelector("h3").innerHTML="No upperCaseLetters";
+}
+else {
+alert("");
+document.querySelector("h3").innerHTML="Need to be with Uppercase";
+}
+
+  var numbers = /[0-9]/g;
+  if(psw.value.match(numbers)) {
+    console.log("passNumberTest");
+  } else {
+    document.querySelector("h3").innerHTML="Need to Have numbers";
+  }
+
+  if(psw.value.length >= 8) {
+  console.log("passLengthTest");
+} else {
+    document.querySelector("h4").innerHTML="Not enough characters";
+}
+
+}
+checkpassword(psw);
+
+</script>
+  </body>
+</html>
